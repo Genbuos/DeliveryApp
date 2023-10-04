@@ -1,14 +1,13 @@
 package deliver;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
 
     public static void main(String[] args) {
         double deliveryfee = 0.0;
         Map<String, Double> cart = new HashMap<>();
+        Set<Product> cartSet = new HashSet<>();
         Scanner userInput = new Scanner(System.in);
 
         boolean moreStuff = true;
@@ -26,6 +25,7 @@ public class Main {
                     int qty = userInput.nextInt();
                     p.setQty(qty);
                     cart.put( p.getName(),p.getPrice() * qty);
+                    cartSet.add(p);
                     break;
                 case "rice":
                     var r =ProductFactory.configureProduct("Rice");
@@ -33,6 +33,7 @@ public class Main {
                      qty = userInput.nextInt();
                      r.setQty(qty);
                     cart.put( r.getName(), r.getPrice() * qty);
+                    cartSet.add(r);
                     break;
                 case "wings":
                     var w = ProductFactory.configureProduct("Wings");
@@ -40,6 +41,7 @@ public class Main {
                      qty = userInput.nextInt();
                         w.setQty(qty);
                     cart.put(w.getName(), w.getPrice() * qty);
+                    cartSet.add(w);
                     break;
                 case "sprite":
                     var s = ProductFactory.configureProduct("Sprite");
@@ -47,6 +49,7 @@ public class Main {
                     qty = userInput.nextInt();
                     s.setQty(qty);
                     cart.put(s.getName(),s.getPrice() * qty);
+                    cartSet.add(s);
                     break;
                 default:
                     System.out.println("Product is not supported");
@@ -90,6 +93,20 @@ public class Main {
 
         }
 
-        System.out.println();
+        System.out.println("                                                        Here is your order!");
+        System.out.println("*********************************************************************************************************************************");
+        for(Double price: cart.values()){
+           totalCost += price;
+        }
+        System.out.println("                            Product,            Qty,            Price,           Miles,                    Delivery fee");
+        System.out.println("                            ========            =====           ======          ========                   ============");
+
+        for (Product product : cartSet) {
+            System.out.println("                            " + product.getName() + "                 " + product.getQty() + "              " + product.getTotalPrice()+ "                 " + $miles + "                    " + deliveryfee);
+        }
+
+        System.out.println("\n"+ "                                                                                                             Total");
+        System.out.println("                                                                                                     ********************");
+        System.out.println("                                                                                                            "+ totalCost);
     }
 }

@@ -34,6 +34,10 @@ public class Product {
         this.qty = qty;
     }
 
+    public double getTotalPrice(){
+        return  getPrice() * (double) getQty();
+    }
+
     @Override
     public String toString() {
         return "Product{" +
