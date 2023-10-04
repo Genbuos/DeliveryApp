@@ -90,6 +90,6 @@ public class Main {
 
         }
 
-        System.out.println(cart.toString());
+        System.out.println();
     }
 }

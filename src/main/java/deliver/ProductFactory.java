@@ -5,7 +5,8 @@ import deliver.food.Rice;
 import deliver.food.Sprite;
 import deliver.food.Wings;
 
-public abstract class ProductFactory {
+public abstract class ProductFactory  {
+
     public static Product configureProduct(String type){
         Product p = null;
 
