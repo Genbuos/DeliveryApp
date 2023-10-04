@@ -67,9 +67,7 @@ public class Main {
 
         }
         double totalCost = 0.0;
-        for (Double cost: cart.values()) {
-            totalCost += cost;
-        }
+
 
         System.out.println("How many miles away are you?");
         int $miles = userInput.nextInt();
