@@ -38,12 +38,5 @@ public class Product {
         return  getPrice() * (double) getQty();
     }
 
-    @Override
-    public String toString() {
-        return "Product{" +
-                "price=" + price +
-                ", name='" + name + '\'' +
-                ", qty=" + qty +
-                '}';
-    }
+
 }
