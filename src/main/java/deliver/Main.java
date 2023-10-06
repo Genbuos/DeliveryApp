@@ -72,7 +72,7 @@ public class Main {
         System.out.println("How many miles away are you?");
         int $miles = userInput.nextInt();
 
-        if($miles <= 5){
+        if( $miles >= 0 && $miles <= 5){
             deliveryfee += 2;
         } else if ($miles > 5 && $miles <= 15) {
             deliveryfee  += 5;
@@ -100,11 +100,14 @@ public class Main {
         System.out.println("                            ========            =====           ======          ========                   ============");
 
         for (Product product : cartSet) {
-            System.out.println("                            " + product.getName() + "                 " + product.getQty() + "              " + product.getTotalPrice()+ "                 " + $miles + "                    " + deliveryfee);
+            String formattedString = String.format("                             %s                %d              %.2f               %d                     %.2f", product.getName(),
+                    product.getQty(),  product.getTotalPrice(),$miles,   deliveryfee );
+            System.out.println(formattedString);
         }
+        var tote = String.format("%.2f", totalCost);
 
         System.out.println("\n"+ "                                                                                                             Total");
-        System.out.println("                                                                                                     ********************");
-        System.out.println("                                                                                                            "+ totalCost);
+        System.out.println("                                                                                                     ********************\n                                                                                                             " + tote);
+
     }
 }
